@@ -119,19 +119,19 @@ class AttackScenario(models.Model):
         ('proftpd_modcopy_exec', 'proftpd_modcopy_exec'),
     )
     mirai = models.BooleanField(default=True)
-    mirai.FirstStage = models.CharField(max_length=255, choices=SEL_VALUE)
+    mirai_FirstStage = models.CharField(max_length=255, choices=SEL_VALUE)
     ransomware = models.BooleanField(default=True)
-    ransomware.FirstStage = models.CharField(max_length=255, choices=SEL_VALUE)
+    ransomware_FirstStage = models.CharField(max_length=255, choices=SEL_VALUE)
     resource_hijacking = models.BooleanField(default=True)
-    resource_hijacking.FirstStage = models.CharField(max_length=255, choices=SEL_VALUE)
+    resource_hijacking_FirstStage = models.CharField(max_length=255, choices=SEL_VALUE)
     disk_wipe = models.BooleanField(default=True)
-    disk_wipe.FirstStage = models.CharField(max_length=255, choices=SEL_VALUE)
+    disk_wipe_FirstStage = models.CharField(max_length=255, choices=SEL_VALUE)
     end_point_dos = models.BooleanField(default=True)
-    end_point_dos.FirstStage = models.CharField(max_length=255, choices=SEL_VALUE)
+    end_point_dos_FirstStage = models.CharField(max_length=255, choices=SEL_VALUE)
     data_theft = models.BooleanField(default=False)
-    data_theft.FirstStage = models.CharField(max_length=255, choices=SEL_VALUE)
+    data_theft_FirstStage = models.CharField(max_length=255, choices=SEL_VALUE)
     rootkit_ransomware = models.BooleanField(default=False)
-    rootkit_ransomware.FirstStage = models.CharField(max_length=255, choices=SEL_VALUE)
+    rootkit_ransomware_FirstStage = models.CharField(max_length=255, choices=SEL_VALUE)
 
 
 
