@@ -115,8 +115,8 @@ class MaliciousClient(models.Model):
 
 class AttackScenario(models.Model):
     SEL_VALUE = (
-        ('rails_secret_deserialization' : 'rails_secret_deserialization'),
-        ('proftpd_modcopy_exec' : 'proftpd_modcopy_exec'),
+        ('rails_secret_deserialization', 'rails_secret_deserialization'),
+        ('proftpd_modcopy_exec', 'proftpd_modcopy_exec'),
     )
     mirai = models.BooleanField(default=True)
     mirai.FirstStage = models.CharField(max_length=255, choices=SEL_VALUE)
