@@ -640,6 +640,7 @@ class AttackerServer(Machine, implements(IConfiguration), implements(IConfigurat
     def configure_data_theft(self):
         prepared_files = "CREME/CREME_backend_execution/scripts/configuration/prepared_files/data_theft/attacker_server"
         filename_path = "configuration/./AttackerServer_data_theft.sh"
+        path = "configuration/prepared_files/FirstStage.py"
         parameters = [self.ip, self.username, self.password, self.path, self.controller_ip, self.controller_username,
                       self.controller_password, self.controller_path, prepared_files]
         ScriptHelper.execute_script(filename_path, parameters, self.show_cmd)
