@@ -688,6 +688,12 @@ class Creme:
         tactic_names = ['Initial Access', 'Command and Control', 'Impact']
         technique_names = ['Valid Accounts', 'Non-Application Layer Protocol', 'Network Denial of Service']
         sub_technique_names = ['Local Accounts', 'Non-Application Layer Protocol', 'Direct Network Flood']
+        """Other possible labels
+        Tactic -> technique -> sub technique
+        Initial Access -> Valid Accounts -> Default Accounts
+        Lateral Movement -> Remote Services -> SSH
+        Resource Development -> Acquire Infrastructure -> Botnet
+        """
 
         src_ips_1 = []
         des_ips_1 = []
