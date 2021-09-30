@@ -834,7 +834,12 @@ class Creme:
         tactic_names = ['Initial Access', 'Command and Control', 'Impact']
         technique_names = ['Exploit Public Application', 'Non-Application Layer Protocol', 'Disk wipe']
         sub_technique_names = ['Exploit Public Application', 'Non-Application Layer Protocol', 'Disk Content Wipe']
+        """Other possible labels
+        Initial Access -> Exploit Public-Facing Application
+        Persistence
+        Impact -> Data Destruction or Disk Wipe -> Disk Content Wipe or Disk Structure Wipe
 
+        """
         return self.process_data_general_scenario(log_folder, labels, tactic_names, technique_names, sub_technique_names)
 
     def process_data_data_theft(self, log_folder):
@@ -878,7 +883,10 @@ class Creme:
         tactic_names = ['Initial Access', 'Command and Control', 'Impact']
         technique_names = ['Exploit Public Application', 'Non-Application Layer Protocol', 'Data Encrypted']
         sub_technique_names = ['Exploit Public Application', 'Non-Application Layer Protocol', 'Data Encrypted']
-
+        """Other possible labels
+        Initial Access -> Exploit Public-Facing Application
+        Persistence
+        """
         return self.process_data_general_scenario(log_folder, labels, tactic_names, technique_names,
                                                   sub_technique_names)
 
