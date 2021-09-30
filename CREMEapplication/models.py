@@ -114,24 +114,26 @@ class MaliciousClient(models.Model):
 
 
 class AttackScenario(models.Model):
-    SEL_VALUE = (
+    FirstStageChoice = (
         ('rails_secret_deserialization', 'rails_secret_deserialization'),
         ('proftpd_modcopy_exec', 'proftpd_modcopy_exec'),
+        ('unreal_ircd_3281_backdoor', 'unreal_ircd_3281_backdoor'),
+        ('apache_continuum_cmd_exec', 'apache_continuum_cmd_exec'),
     )
     mirai = models.BooleanField(default=True)
-    mirai_FirstStage = models.CharField(max_length=255, choices=SEL_VALUE)
+    mirai_FirstStage = models.CharField(max_length=255, choices=FirstStageChoice)
     ransomware = models.BooleanField(default=True)
-    ransomware_FirstStage = models.CharField(max_length=255, choices=SEL_VALUE)
+    ransomware_FirstStage = models.CharField(max_length=255, choices=FirstStageChoice)
     resource_hijacking = models.BooleanField(default=True)
-    resource_hijacking_FirstStage = models.CharField(max_length=255, choices=SEL_VALUE)
+    resource_hijacking_FirstStage = models.CharField(max_length=255, choices=FirstStageChoice)
     disk_wipe = models.BooleanField(default=True)
-    disk_wipe_FirstStage = models.CharField(max_length=255, choices=SEL_VALUE)
+    disk_wipe_FirstStage = models.CharField(max_length=255, choices=FirstStageChoice)
     end_point_dos = models.BooleanField(default=True)
-    end_point_dos_FirstStage = models.CharField(max_length=255, choices=SEL_VALUE)
+    end_point_dos_FirstStage = models.CharField(max_length=255, choices=FirstStageChoice)
     data_theft = models.BooleanField(default=False)
-    data_theft_FirstStage = models.CharField(max_length=255, choices=SEL_VALUE)
+    data_theft_FirstStage = models.CharField(max_length=255, choices=FirstStageChoice)
     rootkit_ransomware = models.BooleanField(default=False)
-    rootkit_ransomware_FirstStage = models.CharField(max_length=255, choices=SEL_VALUE)
+    rootkit_ransomware_FirstStage = models.CharField(max_length=255, choices=FirstStageChoice)
 
 
 
