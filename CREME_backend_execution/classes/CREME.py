@@ -837,8 +837,8 @@ class Creme:
         """
         labels = [1, 1, 1]  # only for syslog
         tactic_names = ['Initial Access', 'Command and Control', 'Impact']
-        technique_names = ['Exploit Public Application', 'Non-Application Layer Protocol', 'Disk wipe']
-        sub_technique_names = ['Exploit Public Application', 'Non-Application Layer Protocol', 'Disk Content Wipe']
+        technique_names = ['Exploit Public-Facing Application', 'Non-Application Layer Protocol', 'Disk wipe']
+        sub_technique_names = ['Exploit Public-Facing Application', 'Non-Application Layer Protocol', 'Disk Content Wipe']
         """Other possible labels
         Initial Access -> Exploit Public-Facing Application
         Persistence
@@ -856,8 +856,8 @@ class Creme:
         """
         labels = [1, 1, 1]  # only for syslog
         tactic_names = ['Initial Access', 'Command and Control', 'Exfiltration']
-        technique_names = ['Exploit Public Application', 'Non-Application Layer Protocol', 'Exfiltration Over C2 Channel']
-        sub_technique_names = ['Exploit Public Application', 'Non-Application Layer Protocol', 'Exfiltration Over C2 Channel']
+        technique_names = ['Exploit Public-Facing Application', 'Non-Application Layer Protocol', 'Exfiltration Over C2 Channel']
+        sub_technique_names = ['Exploit Public-Facing Application', 'Non-Application Layer Protocol', 'Exfiltration Over C2 Channel']
 
         return self.process_data_general_scenario(log_folder, labels, tactic_names, technique_names,
                                                   sub_technique_names)
@@ -871,8 +871,8 @@ class Creme:
         """
         labels = [1, 1, 1]  # only for syslog
         tactic_names = ['Initial Access', 'Command and Control', 'Impact']
-        technique_names = ['Exploit Public Application', 'Non-Application Layer Protocol', 'Data Encrypted']
-        sub_technique_names = ['Exploit Public Application', 'Non-Application Layer Protocol', 'Data Encrypted']
+        technique_names = ['Exploit Public-Facing Application', 'Non-Application Layer Protocol', 'Data Encrypted']
+        sub_technique_names = ['Exploit Public-Facing Application', 'Non-Application Layer Protocol', 'Data Encrypted']
 
         return self.process_data_general_scenario(log_folder, labels, tactic_names, technique_names,
                                                   sub_technique_names)
@@ -886,8 +886,8 @@ class Creme:
         """
         labels = [1, 1, 1]  # only for syslog
         tactic_names = ['Initial Access', 'Command and Control', 'Impact']
-        technique_names = ['Exploit Public Application', 'Non-Application Layer Protocol', 'Data Encrypted']
-        sub_technique_names = ['Exploit Public Application', 'Non-Application Layer Protocol', 'Data Encrypted']
+        technique_names = ['Exploit Public-Facing Application', 'Non-Application Layer Protocol', 'Data Encrypted']
+        sub_technique_names = ['Exploit Public-Facing Application', 'Non-Application Layer Protocol', 'Data Encrypted']
         """Other possible labels
         Initial Access -> Exploit Public-Facing Application
         Persistence
@@ -904,8 +904,8 @@ class Creme:
         """
         labels = [1, 1, 1]  # only for syslog
         tactic_names = ['Initial Access', 'Command and Control', 'Impact']
-        technique_names = ['Exploit Public Application', 'Non-Application Layer Protocol', 'Resource Hijacking']
-        sub_technique_names = ['Exploit Public Application', 'Non-Application Layer Protocol', 'Resource Hijacking']
+        technique_names = ['Exploit Public-Facing Application', 'Non-Application Layer Protocol', 'Resource Hijacking']
+        sub_technique_names = ['Exploit Public-Facing Application', 'Non-Application Layer Protocol', 'Resource Hijacking']
 
         return self.process_data_general_scenario(log_folder, labels, tactic_names, technique_names,
                                                   sub_technique_names)
@@ -919,8 +919,8 @@ class Creme:
         """
         labels = [1, 1, 1]  # only for syslog
         tactic_names = ['Initial Access', 'Persistence', 'Impact']
-        technique_names = ['Exploit Public Application', 'Create Account', 'Endpoint DoS']
-        sub_technique_names = ['Exploit Public Application', 'Local Account', 'OS Exhaustion Flood']
+        technique_names = ['Exploit Public-Facing Application', 'Create Account', 'Endpoint DoS']
+        sub_technique_names = ['Exploit Public-Facing Application', 'Local Account', 'OS Exhaustion Flood']
 
         # TODO: currently, using only cmd to label accounting data. There is a problem if normal and abnormal processes
         #  have the same cmd. Think about how to solve this problem???
