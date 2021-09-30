@@ -14,7 +14,7 @@ set mirai_scan "mirai_scan"
 set mirai "mirai"
 #set configure_path "CREME/scripts/configuration/prepared_files/malicious_client"
 
-set timeout 120
+set timeout 60
 
 # SSH connection
 spawn /bin/bash $delKnownHosts
