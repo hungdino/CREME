@@ -796,6 +796,7 @@ class AttackerServer(Machine, implements(IConfiguration), implements(IConfigurat
 
     def data_theft_first_stage(self):
         filename_path = "attacks/data_theft/./AttackerServer_first_stage.sh"
+        #FS_path = "configuration/prepared_files/FirstStage.py" # FirstStage.py's path
         parameters = [self.ip, self.username, self.password, self.path, self.targeted_attack]
         ScriptHelper.execute_script(filename_path, parameters, self.show_cmd)
 

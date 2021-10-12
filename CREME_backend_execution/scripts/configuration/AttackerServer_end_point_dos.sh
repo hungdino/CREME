@@ -12,7 +12,7 @@ set prepared_files [lindex $argv 9]
 
 #set prepared_files "CREME/CREME_backend_execution/scripts/configuration/prepared_files/disk_wipe/attacker_server"
 
-set timeout 1200
+set timeout 60
 
 # SSH connection
 spawn /bin/bash $delKnownHosts
